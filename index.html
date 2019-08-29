@@ -1,1 +1,153 @@
-<h1>Hello!</h1>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://use.typekit.net/lly1mwm.css">
+    <style>
+      body {
+        font-family: proxima-soft, sans-serif;
+      }
+      h1 {
+        font-size: 50px;
+      }
+      .flex {
+        display: flex;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+      .center {
+        text-align: center;
+      }
+      .button {
+        border-radius: 20px;
+        background-color: #24ca7d;
+        border: 1px solid transparent;
+        color: white;
+        font-size: 30px;
+        padding: 15px 50px;
+        font-family: proxima-soft, sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .button:hover {
+        box-shadow: inset 1000px 0 0px rgba(0, 0, 0, 0.05);
+      }
+      .rounded {
+        border-radius: 10px;
+      }
+
+      .lds-ellipsis {
+        display: inline-block;
+        position: relative;
+        width: 64px;
+        height: 64px;
+      }
+      .lds-ellipsis div {
+        position: absolute;
+        top: 27px;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: #24ca7d;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+      }
+      .lds-ellipsis div:nth-child(1) {
+        left: 6px;
+        animation: lds-ellipsis1 0.6s infinite;
+      }
+      .lds-ellipsis div:nth-child(2) {
+        left: 6px;
+        animation: lds-ellipsis2 0.6s infinite;
+      }
+      .lds-ellipsis div:nth-child(3) {
+        left: 26px;
+        animation: lds-ellipsis2 0.6s infinite;
+      }
+      .lds-ellipsis div:nth-child(4) {
+        left: 45px;
+        animation: lds-ellipsis3 0.6s infinite;
+      }
+      @keyframes lds-ellipsis1 {
+        0% {
+          transform: scale(0);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes lds-ellipsis3 {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(0);
+        }
+      }
+      @keyframes lds-ellipsis2 {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(19px, 0);
+        }
+      }
+    </style>
+
+    <script>
+      function doTheThing() {
+        var first = document.getElementById("first");
+        var second = document.getElementById("second");
+        var third = document.getElementById("third");
+        var loadingMessage = document.getElementById("loading-message");
+
+        first.style.display = "none";
+        second.style.display = "";
+
+        setTimeout(function() {
+          loadingMessage.innerText = "Almost there...";
+        }, 2000);
+
+        setTimeout(function() {
+          loadingMessage.innerText = "Really close now...";
+        }, 5000);
+
+        setTimeout(function() {
+          loadingMessage.innerText = "Nope, that didn't work. Trying again...";
+        }, 10000);
+
+        setTimeout(function() {
+          loadingMessage.innerText = "Ok, I think I've got it..."
+        }, 15000);
+
+        setTimeout(function() {
+          second.style.display = "none";
+          third.style.display = "";
+        }, 20000);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="flex items-center justify-center" style="margin-top: 10%">
+      <div id="first">
+        <div class="box center">
+          <h1>Who should run the meeting?</h1>
+          <button class="button" onclick="doTheThing()">Find out now!</button>
+        </div>
+      </div>
+
+      <div id="second" style="display: none">
+        <h1 id="loading-message">Please wait...</h1>
+        <div class="center">
+          <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+      </div>
+
+      <div id="third" class="center" style="display: none">
+        <h1>Matthew should run the meeting!</h1>
+        <img src="https://avatars0.githubusercontent.com/u/1034?s=460&v=4" class="rounded" width="200" height="200" />
+      </div>
+    </div>
+  </body>
+</html>
